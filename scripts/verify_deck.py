@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
-EXPECTED_SLIDES = 12
+EXPECTED_SLIDES = 23
 
 
 class DeckParser(HTMLParser):
@@ -60,15 +60,22 @@ def main() -> None:
         "A billboard in Times Square",
         "About 3 weeks from sending it over to going live.",
         "A tagline, 40 characters or less",
-        "played 750,000 times",
+        "750,000 plays",
         "at least 250,000 followers",
         "seen at least 100,000 times",
-        "an email to at least 100,000 people",
+        "email to at least 100,000 people",
         "3000 × 3000 pixels",
         "played 2 million times",
-        "A show doing 100,000 downloads an episode",
+        "100,000 downloads an episode",
         "15 to 30 seconds long, under 500 MB",
         "No need to film anything new.",
+        "Dark-posted partner ads",
+        "All TikTok accounts are eligible.",
+        "professional or business Instagram account",
+        "9:16, 16:9 or 1×1",
+        "Added by Amazon Music.",
+        "Every piece delivered goes live in market and gains impressions.",
+        "Facebook, Threads, Instagram and TikTok.",
         "4 to 6 weeks",
         "Up to 3 to 6 months",
         "1 to 4 a month",
@@ -89,6 +96,12 @@ def main() -> None:
     ]
     if any(phrase not in readme for phrase in confidentiality):
         fail("README confidentiality wording is incomplete")
+    readme_deck_wording = [
+        "23-slide, 16:9 browser presentation",
+        "23-page, 16:9 PDF export",
+    ]
+    if any(phrase not in readme for phrase in readme_deck_wording):
+        fail("README browser deck and PDF status wording is incomplete")
 
     expected_images = [f"assets/images/image-{number:02d}.jpg" for number in range(1, 23)]
     if sorted(set(parser.image_sources)) != expected_images:

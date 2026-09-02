@@ -4,8 +4,8 @@ A private, static browser slide deck about the four Amazon Music marketing progr
 
 ## Files
 
-- **`index.html`** is the rebuilt 12-slide, 16:9 browser presentation. It uses plain HTML, CSS, and JavaScript with no framework or build step.
-- **`amazonmusic-flightcast-deck.pdf`** is the rebuilt 12-page, 16:9 static deck for sending or presenting offline.
+- **`index.html`** is the rebuilt 23-slide, 16:9 browser presentation. It uses plain HTML, CSS, and JavaScript with no framework or build step.
+- **`amazonmusic-flightcast-deck.pdf`** is the matching 23-page, 16:9 PDF export for sharing or presenting offline.
 - **`source-original.html`** preserves the original self-contained 8-page document exactly as the source for copy and image order.
 - **`assets/images/`** contains the 22 source images referenced by the deck.
 - **`assets/fonts/`** contains local Geist font files.
@@ -28,7 +28,7 @@ Run the content and structure checks after every change:
 npm run verify
 ```
 
-Navigation supports the visible previous and next buttons, Arrow keys, Page Up, Page Down, Home, End, and direct URLs such as `#slide-6`. The deck uses vertical scroll snapping and prints one 16:9 slide per page.
+Navigation supports the visible previous and next buttons, Arrow keys, Page Up, Page Down, Home, End, and direct URLs such as `#slide-9`. The deck uses vertical scroll snapping and prints one 16:9 slide per page.
 
 ## Keep this repository private
 
@@ -47,5 +47,6 @@ Edit `index.html` locally. Keep these rules:
 - Every number in the document is sourced from Amazon's own text or from Rox's confirmation on how video reaches Amazon Music. Do not round or estimate.
 - Preserve all substantive copy, outbound links, names, captions, and source images.
 - No em dashes, per house style.
-- After any change, check the last bullet of the longest list is still there: "A tagline, 40 characters or less", on the billboard requirements slide. It is the first thing to disappear if a slide overflows.
+- Keep each slide focused on one idea, body copy practically readable, and lists to five short points or fewer. The billboard audience commitments and creative handoff deliberately remain separate slides.
+- After any change, check "A tagline, 40 characters or less" remains on the billboard creative handoff slide.
 - Run `npm run verify` before sharing the files.

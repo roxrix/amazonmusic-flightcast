@@ -9,171 +9,211 @@
     @font-face{font-family:Geist;src:url("assets/fonts/geist-400.woff2") format("woff2");font-weight:400;font-display:swap}
     @font-face{font-family:Geist;src:url("assets/fonts/geist-500.woff2") format("woff2");font-weight:500;font-display:swap}
     @font-face{font-family:Geist;src:url("assets/fonts/geist-600.woff2") format("woff2");font-weight:600;font-display:swap}
-    :root{--violet:#8022fe;--violet-deep:#5511b8;--ink:#19151f;--muted:#716a78;--paper:#fbf9fc;--tray:#f1edf4;--card:#fff;--warm:#fff0e5;--lime:#d7ff74;--shadow:0 10px 30px rgba(35,20,48,.08);--ease:cubic-bezier(.215,.61,.355,1)}
+    @font-face{font-family:Geist;src:url("assets/fonts/geist-700.woff2") format("woff2");font-weight:700;font-display:swap}
+    :root{--violet:#8022fe;--deep:#4a0d91;--night:#14091f;--ink:#1d1822;--muted:#706977;--paper:#fbf9fc;--soft:#f0ebf3;--white:#fff;--lime:#dfff72;--orange:#ff875b;--shadow:0 14px 40px rgba(32,15,45,.13);--ease:cubic-bezier(.215,.61,.355,1)}
     *{box-sizing:border-box}
-    html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:#dcd5e2}
-    body{margin:0;color:var(--ink);font-family:Geist,Arial,sans-serif;font-weight:500;background:radial-gradient(circle at 10% 10%,#f4ecff 0,transparent 26%),#dcd5e2}
-    button,a{font:inherit}
-    a{color:inherit}
-    .deck{width:100%}
-    .slide{height:100svh;min-height:440px;display:grid;place-items:center;scroll-snap-align:start;scroll-snap-stop:always;position:relative}
-    .slide-frame{position:relative;width:min(100vw,calc(100svh * 16 / 9));aspect-ratio:16/9;overflow:hidden;background:var(--paper);padding:clamp(28px,3.65vw,70px);container-type:inline-size}
-    .slide-frame::after{content:attr(data-number);position:absolute;right:3.2%;bottom:3%;font-size:clamp(9px,1cqw,15px);letter-spacing:.12em;color:#938b99}
-    .brand{display:flex;align-items:center;gap:.6em;font-size:clamp(11px,1.15cqw,18px);letter-spacing:-.02em}
-    .brand-dot{width:.78em;height:.78em;border-radius:35% 65% 58% 42%;background:var(--violet);transform:rotate(18deg)}
-    .amazon{font-weight:600}.amazon::after{content:"music";display:inline-block;margin-left:.28em;color:var(--violet)}
-    .eyebrow,.kicker{font-size:clamp(9px,1.05cqw,16px);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
-    .kicker{color:var(--violet)}
-    h1,h2,h3,p{margin:0}
-    h1{font-size:clamp(34px,5.2cqw,80px);line-height:.98;letter-spacing:-.055em;font-weight:500;text-wrap:balance}
-    h2{font-size:clamp(27px,3.65cqw,56px);line-height:1.02;letter-spacing:-.045em;font-weight:500;text-wrap:balance}
-    h3{font-size:clamp(15px,1.45cqw,23px);line-height:1.15;font-weight:500}
-    p,li{font-size:clamp(13px,1.32cqw,21px);line-height:1.42}
-    .lede{font-size:clamp(17px,1.9cqw,30px);line-height:1.32;color:#4d4653;max-width:42em}
-    .muted{color:var(--muted)}
-    .topline{display:flex;justify-content:space-between;align-items:center;gap:20px}
-    .stack{display:flex;flex-direction:column;gap:clamp(10px,1.2cqw,20px)}
-    .content{height:100%;display:flex;flex-direction:column;gap:clamp(18px,2.2cqw,36px)}
-    .grow{flex:1;min-height:0}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2cqw,20px);min-height:0}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,.8cqw,13px);min-height:0}
-    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(7px,.65cqw,11px)}
-    .tray{background:var(--tray);padding:clamp(5px,.5cqw,8px);border-radius:clamp(16px,1.9cqw,30px);display:grid;gap:clamp(5px,.5cqw,8px)}
-    .card{background:var(--card);border-radius:clamp(12px,1.45cqw,23px);padding:clamp(14px,1.6cqw,26px);box-shadow:0 2px 8px rgba(35,20,48,.04)}
-    .tile{background:#f5f2f7;border-radius:clamp(8px,.9cqw,14px);padding:clamp(12px,1.25cqw,20px)}
-    .pill{display:inline-flex;width:max-content;align-items:center;border-radius:999px;background:#efe4ff;color:var(--violet-deep);padding:.45em .8em;font-size:clamp(9px,.9cqw,14px);font-weight:600}
-    .num{font-variant-numeric:tabular-nums;color:var(--violet);font-size:clamp(25px,3.3cqw,52px);line-height:1;letter-spacing:-.05em}
-    ul,ol{margin:0;padding-left:1.18em;display:flex;flex-direction:column;gap:clamp(5px,.55cqw,9px)}
-    li::marker{color:var(--violet)}
-    .wash{background:linear-gradient(100deg,rgba(128,34,254,.11),rgba(128,34,254,0));border-radius:clamp(12px,1.45cqw,23px);padding:clamp(16px,1.8cqw,29px)}
-    .cover{background:linear-gradient(145deg,#160c20 0%,#2b123f 50%,#52179a 100%);color:white}
-    .cover::before{content:"";position:absolute;width:45%;aspect-ratio:1;border-radius:50%;right:-9%;top:-35%;background:radial-gradient(circle,rgba(215,255,116,.42),rgba(128,34,254,0) 68%)}
-    .cover .brand{position:relative}.cover-copy{position:relative;z-index:2;width:65%;display:flex;flex-direction:column;gap:clamp(14px,1.6cqw,26px);padding-top:4%}
-    .cover .eyebrow{color:#d6cbe0}.cover .lede{color:#e9e1ef;max-width:31em}.cover-foot{position:absolute;left:4.4%;bottom:4%;z-index:3;color:#d6cbe0}
-    .device-rail{position:absolute;right:1.5%;bottom:-14%;width:54%;height:68%;display:flex;gap:1.4%;transform:rotate(4deg)}
-    .device-rail img{width:18.9%;height:100%;object-fit:cover;border-radius:1.8cqw;box-shadow:var(--shadow)}
-    .device-rail img:nth-child(even){transform:translateY(8%)}
-    .meaning{grid-template-columns:1.05fr .95fr;align-items:stretch}
-    .phones{display:grid;grid-template-columns:1fr 1fr;gap:3%;min-height:0;background:var(--tray);padding:2%;border-radius:2cqw}
-    .phones img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:top;border-radius:1.5cqw}
-    .programs-overview{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
-    .program{min-height:0;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:1.3cqw;row-gap:.65cqw;align-content:center}
-    .program .num{grid-row:1 / 4;font-size:clamp(31px,4.1cqw,64px);padding-top:.08em}
-    .program h3{font-size:clamp(18px,1.85cqw,29px)}
-    .program p{color:var(--muted)}
-    .program .program-note{font-size:clamp(13px,1.17cqw,18px);color:#4d4653}
-    .boards{grid-template-columns:repeat(5,1fr);height:45%;display:grid;gap:.5cqw;background:var(--tray);padding:.5cqw;border-radius:1.8cqw}
-    .boards img{width:100%;height:100%;object-fit:cover;border-radius:1.3cqw}
-    .offer-split{display:grid;grid-template-columns:.78fr 1.22fr;gap:2.2cqw;align-items:start}
-    .requirements{grid-template-columns:1fr 1fr;align-items:stretch}
-    .requirements .card{padding:1.35cqw}.requirements ul{gap:.55cqw}.requirements li{font-size:clamp(12px,1.13cqw,18px);line-height:1.32}
-    .requirements b{font-weight:600}
-    .app-copy{grid-template-columns:.92fr 1.08fr;align-items:stretch}
-    .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:.7cqw;min-height:0;background:var(--tray);padding:.7cqw;border-radius:1.9cqw}
-    figure{margin:0;display:flex;min-width:0;min-height:0;flex-direction:column;gap:.5cqw}
-    figure img{width:100%;min-height:0;flex:1;object-fit:cover;object-position:top;border-radius:1.2cqw}
-    figcaption{font-size:clamp(11px,.96cqw,15px);line-height:1.3;color:var(--muted);text-align:center}
-    .swap{display:grid;grid-template-columns:1fr .13fr 1fr;align-items:center;gap:1.4cqw}
-    .swap-arrow{text-align:center;font-size:3cqw;color:var(--violet)}
-    .steps{counter-reset:step;list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.6cqw}
-    .steps li{counter-increment:step;background:#f5f2f7;border-radius:1cqw;padding:1.15cqw;font-size:clamp(11px,1.06cqw,17px)}
-    .steps li::before{content:"0" counter(step);display:block;color:var(--violet);margin-bottom:.6cqw}
-    .social-assets{display:grid;grid-template-columns:repeat(3,1fr);gap:.7cqw;min-height:0}
-    .social-assets figure{background:var(--tray);padding:.55cqw;border-radius:1.6cqw}
-    .social-assets img{object-fit:cover}
-    .social-assets figcaption{font-size:clamp(11px,1.02cqw,16px);line-height:1.3;text-align:left;padding-inline:.25cqw}
-    .details{grid-template-columns:1fr 1fr 1fr;align-items:stretch}.details .card{padding:1.3cqw}.details ul{gap:.42cqw}.details li{font-size:clamp(11px,1.03cqw,16px);line-height:1.3}
-    .examples{display:grid;grid-template-columns:.8fr 1.05fr .68fr 1.25fr;gap:.55cqw;min-height:0;background:var(--tray);padding:.55cqw;border-radius:1.8cqw}
-    .examples img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:1.25cqw}
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:.6cqw}.metric{padding:1.1cqw;background:#f5f2f7;border-radius:1cqw}.metric strong{display:block;font-size:clamp(16px,1.85cqw,29px);font-weight:500;line-height:1.05;color:var(--violet);margin-bottom:.4cqw}.metric span{font-size:clamp(11px,.98cqw,15px);line-height:1.3;color:var(--muted)}
-    .cta{background:linear-gradient(145deg,#f4ebff,#fff 55%,#eaffbb);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:4cqw}.cta h1{color:var(--violet-deep)}
-    .cta-button{display:inline-flex;width:max-content;text-decoration:none;background:var(--ink);color:white;border-radius:999px;padding:.8em 1.15em;font-size:clamp(12px,1.15cqw,18px)}
-    .signature{background:white;border-radius:2cqw;padding:2.5cqw;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:1cqw}.signature strong{font-size:2cqw;font-weight:500}
-    .controls{position:fixed;z-index:20;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px;background:rgba(27,20,32,.82);backdrop-filter:blur(12px);border-radius:999px;color:#fff;box-shadow:0 5px 18px rgba(0,0,0,.18)}
-    .controls button{width:42px;height:42px;border:0;border-radius:50%;background:transparent;color:inherit;cursor:pointer;font-size:20px;transition:background-color .2s ease}
-    .controls button:disabled{opacity:.28;cursor:default}.controls button:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
-    .counter{min-width:64px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums}.progress{position:fixed;z-index:21;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.2)}.progress-bar{height:100%;width:0;background:var(--violet);transition:width .25s var(--ease)}
-    @media (hover:hover) and (pointer:fine){.controls button:hover:not(:disabled){background:rgba(255,255,255,.14)}.cta-button:hover{background:var(--violet-deep)}}
-    @media (max-aspect-ratio:4/3){.slide{height:auto;min-height:100svh}.slide-frame{width:100vw}.controls{bottom:8px}}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-bar,.controls button{transition:none}}
-    @media print{@page{size:16in 9in;margin:0}html,body{background:#fff;scroll-snap-type:none}.slide{height:9in;min-height:0;break-after:page;page-break-after:always}.slide-frame{width:16in;height:9in;max-width:none}.controls,.progress{display:none!important}}
+    html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:#d9d1df}
+    body{margin:0;color:var(--ink);font-family:Geist,Arial,sans-serif;font-weight:500;background:radial-gradient(circle at 12% 8%,#f2e8ff 0,transparent 28%),#d9d1df}
+    button,a{font:inherit}a{color:inherit}h1,h2,h3,p,figure{margin:0}img{display:block}
+    .deck{width:100%}.slide{height:100svh;min-height:440px;display:grid;place-items:center;scroll-snap-align:start;scroll-snap-stop:always;position:relative}
+    .frame{position:relative;width:min(100vw,calc(100svh * 16 / 9));aspect-ratio:16/9;overflow:hidden;background:var(--paper);padding:4.25cqw 4.6cqw 4cqw;container-type:inline-size}
+    .frame::after{content:attr(data-number);position:absolute;right:2.3cqw;bottom:1.7cqw;font-size:.92cqw;letter-spacing:.12em;color:#918994}
+    .content{height:100%;display:flex;flex-direction:column;gap:2.1cqw}.grow{flex:1;min-height:0}.stack{display:flex;flex-direction:column;gap:1.25cqw}.tight{gap:.7cqw}
+    .topline{display:flex;justify-content:space-between;align-items:center;gap:2cqw;min-height:1.6cqw}.brand{display:flex;align-items:center;gap:.55em;font-size:1.15cqw;letter-spacing:-.02em}.brand-dot{width:.76em;height:.76em;border-radius:35% 65% 58% 42%;background:var(--violet);transform:rotate(18deg)}.amazon{font-weight:700}.amazon::after{content:"music";margin-left:.26em;color:var(--violet)}
+    .eyebrow,.kicker{font-size:1.02cqw;text-transform:uppercase;letter-spacing:.15em;color:var(--muted)}.kicker{color:var(--violet);font-weight:700}
+    h1{font-size:5.35cqw;line-height:.96;letter-spacing:-.06em;font-weight:500;text-wrap:balance}h2{font-size:3.8cqw;line-height:1;letter-spacing:-.05em;font-weight:500;text-wrap:balance}h3{font-size:1.7cqw;line-height:1.13;letter-spacing:-.025em;font-weight:600}
+    p,li{font-size:1.42cqw;line-height:1.4}.lede{font-size:2cqw;line-height:1.28;color:#4f4755;max-width:37em}.small{font-size:1.2cqw;line-height:1.38}.muted{color:var(--muted)}b,strong{font-weight:650}
+    ul,ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:.62cqw}li::marker{color:var(--violet)}
+    .pill{display:inline-flex;width:max-content;border-radius:99px;padding:.5em .85em;background:#eee1ff;color:var(--deep);font-size:1cqw;font-weight:700}.rule{height:1px;background:#ded7e2;width:100%}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw;min-height:0}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1cqw;min-height:0}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:.85cqw;min-height:0}
+    .panel{background:var(--white);border-radius:1.6cqw;padding:1.65cqw;box-shadow:0 2px 10px rgba(32,15,45,.045)}.wash{background:linear-gradient(115deg,#eee4ff,#f8f4fb);border-radius:1.6cqw;padding:1.7cqw}.dark-panel{background:var(--night);color:#fff;border-radius:1.6cqw;padding:1.8cqw}.dark-panel .muted{color:#c8bacf}
+    .big-number{font-size:5.3cqw;line-height:.82;letter-spacing:-.07em;color:var(--violet)}.stat{font-size:3.15cqw;line-height:.95;letter-spacing:-.055em;color:var(--violet);display:block}.label{font-size:1.14cqw;color:var(--muted);line-height:1.3}
+    .cover{background:linear-gradient(135deg,#120719 0%,#351054 58%,#7b20eb 100%);color:#fff}.cover::before{content:"";position:absolute;width:55%;aspect-ratio:1;border-radius:50%;right:-20%;top:-47%;background:radial-gradient(circle,rgba(223,255,114,.55),rgba(128,34,254,0) 68%)}.cover-copy{position:relative;z-index:2;width:66%;padding-top:4%;display:flex;flex-direction:column;gap:1.35cqw}.cover .eyebrow,.cover .lede{color:#e2d7e9}.cover-foot{position:absolute;left:4.6cqw;bottom:3.2cqw;color:#d5c8dc;z-index:3}.device-rail{position:absolute;right:1.7%;bottom:-15%;width:52%;height:70%;display:flex;gap:1.4%;transform:rotate(4deg)}.device-rail img{width:18.9%;height:100%;object-fit:cover;border-radius:1.6cqw;box-shadow:var(--shadow)}.device-rail img:nth-child(even){transform:translateY(8%)}
+    .hero-split{display:grid;grid-template-columns:.9fr 1.1fr;gap:3cqw;align-items:stretch;min-height:0}.phone-pair{display:grid;grid-template-columns:1fr 1fr;gap:.85cqw;background:var(--soft);padding:.75cqw;border-radius:2cqw;min-height:0}.phone-pair img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:top;border-radius:1.35cqw}
+    .programme-list{display:grid;grid-template-columns:1fr 1fr;gap:0 3.5cqw;align-content:center}.programme{display:grid;grid-template-columns:3.6cqw 1fr;gap:1cqw;padding:1.5cqw 0;border-top:1px solid #ddd4e1}.programme:nth-child(-n+2){border-top:0}.programme .index{font-size:1.2cqw;color:var(--violet);padding-top:.2cqw}.programme p{font-size:1.2cqw;color:var(--muted);margin-top:.3cqw}
+    .divider{padding:0;background:var(--night);color:#fff}.divider::after{color:rgba(255,255,255,.5)}.divider-copy{position:absolute;left:4.6cqw;top:4.3cqw;z-index:4;width:55%;display:flex;flex-direction:column;gap:1.25cqw}.divider .kicker{color:var(--lime)}.divider .lede{color:#e1d5e8}.divider-number{font-size:14cqw;line-height:.75;letter-spacing:-.09em;color:rgba(255,255,255,.09);position:absolute;right:4cqw;top:3cqw}.divider-mosaic{position:absolute;left:0;right:0;bottom:0;height:48%;display:grid;gap:.45cqw;padding:.45cqw;background:#24122f}.divider-mosaic.five{grid-template-columns:repeat(5,1fr)}.divider-mosaic.three{grid-template-columns:repeat(3,1fr)}.divider-mosaic img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:1cqw}.divider-glow{background:linear-gradient(135deg,#14091f,#4b126f 60%,#8a23ff)}.divider-glow::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 70%,rgba(223,255,114,.4),transparent 30%)}
+    .billboard-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:2.8cqw;min-height:0}.portrait-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:.7cqw;background:var(--soft);padding:.7cqw;border-radius:1.7cqw}.portrait-strip img{width:100%;height:100%;object-fit:cover;border-radius:1.1cqw}.benefit-list{display:flex;flex-direction:column;border-top:1px solid #ddd5e0}.benefit{display:grid;grid-template-columns:3cqw 1fr;gap:1.1cqw;padding:1.05cqw 0;border-bottom:1px solid #ddd5e0}.benefit span{color:var(--violet);font-size:1.1cqw}.benefit p{font-size:1.3cqw}
+    .commit-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 3cqw}.commit{padding:1.05cqw 0;border-top:1px solid #dcd4e0}.commit:first-child{grid-column:1 / -1;border-top:0}.commit strong{display:block;font-size:1.65cqw;color:var(--violet);margin-bottom:.3cqw}.commit p{font-size:1.25cqw}.asset-line{display:grid;grid-template-columns:6.2cqw 1fr;gap:1.4cqw;align-items:center;padding:1.1cqw 0;border-top:1px solid #ddd5e0}.asset-line:first-child{border-top:0}.asset-tag{font-size:1cqw;text-transform:uppercase;letter-spacing:.12em;color:var(--violet)}
+    .app-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:2.4cqw;min-height:0}.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:.65cqw;background:var(--soft);padding:.65cqw;border-radius:1.8cqw;min-height:0}.screens figure{display:flex;flex-direction:column;gap:.45cqw;min-width:0;min-height:0}.screens img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:top;border-radius:1.1cqw}figcaption{font-size:1cqw;line-height:1.25;color:var(--muted);text-align:center}.link-block{display:block;background:var(--night);color:#fff;border-radius:1.3cqw;padding:1.2cqw 1.4cqw;text-decoration:none;overflow-wrap:anywhere}.link-block span{display:block;color:var(--lime);font-size:1cqw;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.35cqw}
+    .exchange{display:grid;grid-template-columns:1fr 5cqw 1fr;align-items:center;gap:1.2cqw}.exchange-line{height:2px;background:var(--violet);position:relative}.exchange-line::after{content:"";position:absolute;right:0;top:-.38cqw;width:.7cqw;height:.7cqw;border-top:2px solid var(--violet);border-right:2px solid var(--violet);transform:rotate(45deg)}.exchange .dark-panel,.exchange .wash{min-height:14cqw;display:flex;flex-direction:column;justify-content:center;gap:1cqw}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:.8cqw;counter-reset:step;margin-block:auto}.step{min-height:9.5cqw;padding:1.3cqw 1.1cqw;border-top:3px solid var(--violet);background:#f3eef6;border-radius:0 0 1.1cqw 1.1cqw}.step::before{counter-increment:step;content:"0" counter(step);display:block;color:var(--violet);font-size:1.05cqw;margin-bottom:.8cqw}.step p{font-size:1.2cqw}
+    .social-value{display:grid;grid-template-columns:1.05fr .95fr;gap:2.5cqw;min-height:0}.social-shot{position:relative;border-radius:1.8cqw;overflow:hidden;background:#1c1026}.social-shot img{width:100%;height:100%;object-fit:cover}.social-shot .caption{position:absolute;left:1cqw;right:1cqw;bottom:1cqw;background:rgba(18,7,25,.82);backdrop-filter:blur(8px);color:#fff;border-radius:1cqw;padding:1cqw;font-size:1.12cqw}
+    .mechanics{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1cqw}.mechanic{padding:1.3cqw;border-left:3px solid var(--violet);background:#f3eef6;border-radius:0 1.1cqw 1.1cqw 0}.mechanic .eyebrow{color:var(--violet);margin-bottom:.55cqw}.mechanic p{font-size:1.25cqw}
+    .asset-types{display:grid;grid-template-columns:repeat(3,1fr);gap:1cqw;min-height:0}.asset-type{display:flex;flex-direction:column;justify-content:space-between;border-radius:1.6cqw;padding:1.5cqw;overflow:hidden;position:relative;background:#eee7f2}.asset-type:nth-child(2){background:#24122f;color:#fff}.asset-type:nth-child(3){background:#e9ffb7}.asset-type .big-number{font-size:5.5cqw;color:rgba(128,34,254,.34)}.asset-type:nth-child(2) .big-number{color:rgba(255,255,255,.2)}.asset-type p{font-size:1.25cqw;margin-top:.7cqw}.asset-type .limit{font-size:1.05cqw;text-transform:uppercase;letter-spacing:.1em;color:var(--violet);margin-top:1cqw}
+    .host-gallery{display:grid;grid-template-columns:.95fr 1.15fr 1.35fr;gap:.7cqw;background:var(--soft);padding:.7cqw;border-radius:1.8cqw;min-height:0}.host-gallery figure{display:flex;flex-direction:column;min-height:0;gap:.45cqw}.host-gallery img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:1.1cqw}.host-gallery figcaption{text-align:left;padding:.2cqw .25cqw}
+    .script-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:2.3cqw;min-height:0}.script{counter-reset:line;display:flex;flex-direction:column}.script-line{display:grid;grid-template-columns:2.4cqw 1fr;gap:1cqw;padding:1cqw 0;border-top:1px solid #ddd5e0}.script-line::before{counter-increment:line;content:"0" counter(line);color:var(--violet);font-size:1.05cqw}.script-line p{font-size:1.25cqw}.quote{background:var(--deep);color:#fff;border-radius:1.6cqw;padding:1.7cqw;display:flex;flex-direction:column;justify-content:center;gap:1.15cqw}.quote p{font-size:1.6cqw;line-height:1.3}.quote span{font-size:1.03cqw;color:#ddc8ef}.quote .rule{margin-block:1.2cqw}
+    .spec-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:2.5cqw;min-height:0}.spec-hero{background:linear-gradient(145deg,#260b3d,#8322f6);color:#fff;border-radius:1.7cqw;padding:1.7cqw;display:flex;flex-direction:column;justify-content:space-between}.spec-hero strong{font-size:5cqw;line-height:.82;letter-spacing:-.07em}.spec-hero p{color:#e7d8f1}.spec-list{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}.spec{padding:1.2cqw;border-top:2px solid var(--violet);background:#f2edf5}.spec b{display:block;font-size:1.4cqw;margin-bottom:.35cqw}.spec p{font-size:1.18cqw}
+    .static-layout{display:grid;grid-template-columns:.86fr 1.14fr;gap:1.2cqw;min-height:0}.static-layout img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:1.3cqw}.static-copy{display:flex;flex-direction:column;justify-content:center;gap:1.1cqw;padding:1.8cqw;background:var(--soft);border-radius:1.6cqw}.static-examples{display:grid;grid-template-rows:1.2fr .8fr;gap:.7cqw;min-height:0}.episode-layout{display:grid;grid-template-columns:.78fr 1.45fr .62fr;gap:1.1cqw;min-height:0;align-items:stretch}.episode-layout .copy{display:flex;flex-direction:column;justify-content:center;gap:1cqw}.episode-layout img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:1.3cqw;background:#100916}
+    .faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:2.4cqw;min-height:0}.timeline{background:var(--night);color:#fff;border-radius:1.6cqw;padding:1.5cqw;display:flex;flex-direction:column;justify-content:space-between}.timeline .stat{color:var(--lime)}.timeline p{font-size:1.18cqw;color:#d8cadf}.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}.faq{border-top:2px solid var(--violet);padding:.85cqw 0}.faq h3{font-size:1.25cqw;margin-bottom:.35cqw}.faq p{font-size:1.12cqw;color:var(--muted)}
+    .cta{background:linear-gradient(135deg,#f0e3ff 0%,#fff 52%,#eaffba 100%);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:4cqw}.cta h1{color:var(--deep)}.cta-button{display:inline-flex;width:max-content;text-decoration:none;background:var(--ink);color:#fff;border-radius:99px;padding:.8em 1.15em;font-size:1.22cqw}.signature{background:#fff;border-radius:1.8cqw;padding:2.2cqw;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.8cqw}.signature strong{font-size:2cqw;font-weight:600}
+    .controls{position:fixed;z-index:20;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:5px;padding:5px;background:rgba(24,14,29,.84);backdrop-filter:blur(12px);border-radius:99px;color:#fff;box-shadow:0 5px 18px rgba(0,0,0,.18)}.controls button{width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:inherit;cursor:pointer;font-size:18px}.controls button:disabled{opacity:.28}.controls button:focus-visible{outline:2px solid var(--lime);outline-offset:2px}.counter{min-width:62px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums}.progress{position:fixed;z-index:21;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.2)}.progress-bar{height:100%;width:0;background:var(--violet);transition:width .25s var(--ease)}
+    @media (hover:hover) and (pointer:fine){.controls button:hover:not(:disabled){background:rgba(255,255,255,.14)}.cta-button:hover{background:var(--deep)}}
+    @media (max-aspect-ratio:4/3){.slide{height:auto;min-height:100svh}.frame{width:100vw}.controls{bottom:8px}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-bar{transition:none}}
+    @media print{@page{size:16in 9in;margin:0}html,body{background:#fff;scroll-snap-type:none}.slide{height:9in;min-height:0;break-after:page;page-break-after:always}.frame{width:16in;height:9in;max-width:none}.controls,.progress{display:none!important}}
   </style>
 </head>
 <body>
   <main class="deck" id="deck" aria-label="Amazon Music and Flightcast creator marketing presentation">
-    <section class="slide" id="slide-1" data-title="Cover"><div class="slide-frame cover" data-number="01 / 12">
+    <section class="slide" id="slide-1" data-title="Cover"><div class="frame cover" data-number="01 / 23">
       <div class="brand"><span class="brand-dot"></span><span>Flightcast</span><span>×</span><span class="amazon">amazon</span></div>
       <div class="cover-copy"><p class="eyebrow">Announcement · Flightcast × Amazon Music</p><h1>Video is coming to Amazon Music.</h1><p class="lede">A new place for people to watch your show, and the marketing that comes with it.</p></div>
       <div class="device-rail" aria-label="Amazon Music product screens"><img src="assets/images/image-01.jpg" alt="Amazon Music app screen"><img src="assets/images/image-02.jpg" alt="Amazon Music app screen"><img src="assets/images/image-03.jpg" alt="Amazon Music app screen"><img src="assets/images/image-04.jpg" alt="Amazon Music app screen"><img src="assets/images/image-05.jpg" alt="Amazon Music app screen"></div>
       <p class="cover-foot">Prepared for <b>Flightcast creators</b> · Four marketing programmes from Amazon Music</p>
     </div></section>
 
-    <section class="slide" id="slide-2" data-title="What video means"><div class="slide-frame" data-number="02 / 12"><div class="content">
+    <section class="slide" id="slide-2" data-title="What video means"><div class="frame" data-number="02 / 23"><div class="content">
       <div class="topline"><p class="kicker">A new place to watch</p><div class="brand"><span class="brand-dot"></span>Flightcast × <span class="amazon">amazon</span></div></div>
-      <div class="grid-2 meaning grow"><div class="stack"><h2>What it means for your show</h2><p class="lede">Amazon Music is about to start showing video podcasts. That is a new place for people to watch your show, inside an app they already open every day for music and podcasts.</p><div class="tray"><div class="card"><ul><li>People will be able to watch your show on Amazon Music, not just listen to it</li><li>If you already publish video through Flightcast, your episodes will be there automatically. There is nothing separate to upload</li></ul></div></div></div><div class="phones"><img src="assets/images/image-06.jpg" alt="Video episode in Amazon Music"><img src="assets/images/image-07.jpg" alt="Video episode player in Amazon Music"></div></div>
-      <p class="muted">This is how a video episode looks to someone on Amazon Music.</p>
+      <div class="hero-split grow"><div class="stack" style="justify-content:center"><h2>Your show, inside an app people already open every day.</h2><p class="lede">Amazon Music is about to start showing video podcasts.</p><div class="rule"></div><p>If you already publish video through Flightcast, your episodes will be there automatically. There is nothing separate to upload.</p></div><div class="phone-pair"><img src="assets/images/image-06.jpg" alt="Video episode in Amazon Music"><img src="assets/images/image-07.jpg" alt="Video episode player in Amazon Music"></div></div>
+      <p class="small muted">This is how a video episode looks to someone on Amazon Music: they can watch your show, not just listen to it.</p>
     </div></div></section>
 
-    <section class="slide" id="slide-3" data-title="Four programmes"><div class="slide-frame" data-number="03 / 12"><div class="content">
-      <div class="topline"><p class="kicker">The opportunity</p><div class="brand"><span class="brand-dot"></span>Flightcast × <span class="amazon">amazon</span></div></div>
-      <div class="stack"><h2>Four ways to put your show in front of more people.</h2><p class="lede"><b>Flightcast can get you into the marketing that comes with it.</b> Amazon is opening four marketing programmes to a small number of shows, and we think yours is one of them.</p></div>
-      <div class="tray programs-overview grow">
-        <article class="card program"><span class="num">01</span><h3>Times Square billboard</h3><p>One week on one of the world’s biggest screens.</p><p class="program-note">Best for shows with a big audience already · 3 to 4 months lead time</p></article>
-        <article class="card program"><span class="num">02</span><h3>Featured in the app</h3><p>Reach people already browsing Amazon Music.</p><p class="program-note">Quickest option · Nothing promised back</p></article>
-        <article class="card program"><span class="num">03</span><h3>Audio ad swap</h3><p>Trade your ad space for reach across the free tier.</p><p class="program-note">No money changes hands · 2 million plays from your side</p></article>
-        <article class="card program"><span class="num">04</span><h3>Paid social ads</h3><p>Amazon funds campaigns across Meta and TikTok.</p><p class="program-note">Usually live within a week · Costs you nothing</p></article>
+    <section class="slide" id="slide-3" data-title="Four programmes"><div class="frame" data-number="03 / 23"><div class="content">
+      <div class="topline"><p class="kicker">The opportunity</p><span class="pill">A small number of shows</span></div>
+      <div class="grid-2 grow" style="align-items:center"><div class="stack"><h2>Four ways to put your show in front of more people.</h2><p class="lede"><b>Flightcast can get you into the marketing that comes with it.</b></p><p class="muted">Amazon is opening four programmes, and we think yours is one of the shows that fits.</p></div><div class="programme-list">
+        <div class="programme"><span class="index">01</span><div><h3>Times Square billboard</h3><p>One week · 3 to 4 months lead time</p></div></div>
+        <div class="programme"><span class="index">02</span><div><h3>Featured in the app</h3><p>Quickest · Nothing promised back</p></div></div>
+        <div class="programme"><span class="index">03</span><div><h3>Audio ad swap</h3><p>Ad space for reach · No money changes hands</p></div></div>
+        <div class="programme"><span class="index">04</span><div><h3>Paid social ads</h3><p>Amazon funds Meta and TikTok</p></div></div>
+      </div></div>
+    </div></div></section>
+
+    <section class="slide" id="slide-4" data-title="Times Square"><div class="frame divider" data-number="04 / 23">
+      <div class="divider-copy"><p class="kicker">01 · The big one</p><h1>A billboard in Times Square</h1><p class="lede">A week on one of the world’s biggest screens, plus a shoot you keep.</p></div><div class="divider-number">01</div>
+      <div class="divider-mosaic five"><img src="assets/images/image-08.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-09.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-10.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-11.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-12.jpg" alt="Previous Amazon Music Times Square billboard"></div>
+    </div></section>
+
+    <section class="slide" id="slide-5" data-title="Billboard value"><div class="frame" data-number="05 / 23"><div class="content">
+      <div class="topline"><p class="kicker">01 · What you get</p><span class="pill">3 to 4 months lead time</span></div>
+      <div class="billboard-layout grow"><div class="stack" style="justify-content:center"><span class="big-number">7 days</span><h2>Full-screen video at 20 Times Square.</h2><p class="lede">Best for shows with a big audience already.</p></div><div class="benefit-list" style="align-self:center">
+        <div class="benefit"><span>01</span><p>A one-week feature on Amazon Music's billboard at 20 Times Square.</p></div>
+        <div class="benefit"><span>02</span><p>Professional photography and video, yours to use on social.</p></div>
+        <div class="benefit"><span>03</span><p>A featured spot inside the Amazon Music app.</p></div>
+        <div class="benefit"><span>04</span><p>Amazon's ad spend behind the files you provide, as part of the social ads programme.</p></div>
+      </div></div>
+      <p class="small muted">Previous Amazon Music features are shown on the preceding slide.</p>
+    </div></div></section>
+
+    <section class="slide" id="slide-6" data-title="Billboard reach commitments"><div class="frame" data-number="06 / 23"><div class="content">
+      <div class="topline"><p class="kicker">01 · The audience commitment</p><span class="pill">What they want back</span></div>
+      <div class="stack"><h2>Bring your audience to Amazon Music.</h2><p class="lede">Five commitments, each with a clear reach target.</p></div>
+      <div class="commit-grid grow">
+        <div class="commit"><strong>Website</strong><p>A button or link on your site pointing to your show on Amazon Music.</p></div>
+        <div class="commit"><strong>750,000 plays</strong><p>An ad at the start of your episodes, naming Amazon Music and no other platform.</p></div>
+        <div class="commit"><strong>250,000 followers</strong><p>One Instagram feed post tagging @amazonmusic, using shoot photos. The posting account needs at least 250,000 followers.</p></div>
+        <div class="commit"><strong>100,000 impressions</strong><p>A display banner campaign linking to your show on Amazon Music, seen at least 100,000 times.</p></div>
+        <div class="commit"><strong>100,000 people</strong><p>An email to at least 100,000 people, pointing to Amazon Music and no other platform.</p></div>
       </div>
     </div></div></section>
 
-    <section class="slide" id="slide-4" data-title="Billboard offer"><div class="slide-frame" data-number="04 / 12"><div class="content">
-      <div class="topline"><p class="kicker">01 · The big one</p><span class="pill">3 to 4 months lead time</span></div><div class="offer-split"><div class="stack"><h2>A billboard in Times Square</h2><p class="lede">A week on one of the world’s biggest screens, plus a shoot you keep.</p><p class="muted">Best for shows with a big audience already.</p></div><div class="wash stack"><h3>What you get</h3><ul><li>A one-week feature on Amazon Music's billboard at 20 Times Square, full-screen video</li><li>Professionally captured photography and video, yours to use on social</li><li>A featured spot inside the Amazon Music app</li><li>Amazon's own ad spend behind the files you give them, as set out in the social ads section below</li></ul></div></div>
-      <div class="boards grow"><img src="assets/images/image-08.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-09.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-10.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-11.jpg" alt="Previous Amazon Music Times Square billboard"><img src="assets/images/image-12.jpg" alt="Previous Amazon Music Times Square billboard"></div><p class="muted">Photographs: previous Amazon Music features on the boards at Times Square.</p>
+    <section class="slide" id="slide-7" data-title="Billboard assets"><div class="frame" data-number="07 / 23"><div class="content">
+      <div class="topline"><p class="kicker">01 · The creative handoff</p><span class="pill">Four assets to send</span></div>
+      <div class="grid-2 grow" style="align-items:center"><div class="stack"><h2>Then bring the campaign to life.</h2><p class="lede">The source files Amazon needs to make the work.</p></div><div>
+        <div class="asset-line"><span class="asset-tag">Video</span><p><b>A video of you,</b> 15 to 30 seconds, talking about the show.</p></div>
+        <div class="asset-line"><span class="asset-tag">Portrait</span><p><b>An approved headshot</b> Amazon can use to build a still image ad.</p></div>
+        <div class="asset-line"><span class="asset-tag">Cover art</span><p><b>3000 × 3000 pixels, JPG,</b> or MOV if you want it to loop.</p></div>
+        <div class="asset-line"><span class="asset-tag">Copy</span><p><b>A tagline, 40 characters or less.</b></p></div>
+      </div></div>
     </div></div></section>
 
-    <section class="slide" id="slide-5" data-title="Billboard requirements"><div class="slide-frame" data-number="05 / 12"><div class="content">
-      <div class="topline"><p class="kicker">01 · The exchange</p><span class="pill">What they want back</span></div><h2>Bring your audience, then bring the campaign to life.</h2>
-      <div class="tray grid-2 requirements grow"><div class="card"><ul><li><b>Website:</b> a button or link on your site pointing to your show on Amazon Music</li><li><b>Audio:</b> an ad at the start of your episodes, played 750,000 times, naming Amazon Music and no other platform</li><li><b>Social:</b> one Instagram feed post tagging @amazonmusic using the photos from the shoot. The account posting it needs at least 250,000 followers</li><li><b>Display:</b> a banner campaign seen at least 100,000 times, linking to your show on Amazon Music</li><li><b>Newsletter:</b> an email to at least 100,000 people, pointing them to Amazon Music and no other platform</li></ul></div><div class="card"><p class="eyebrow">Assets to send</p><div style="height:1cqw"></div><ul><li><b>A video of you,</b> 15 to 30 seconds, talking about the show</li><li><b>A headshot</b> you are happy with, which they use to build a still image ad</li><li><b>Cover art</b> at 3000 × 3000 pixels, JPG, or MOV if you want it to loop</li><li><b>A tagline, 40 characters or less</b></li></ul></div></div>
+    <section class="slide" id="slide-8" data-title="In-app feature"><div class="frame divider divider-glow" data-number="08 / 23">
+      <div class="divider-copy"><p class="kicker">02 · Quickest</p><h1>Featured in the app</h1><p class="lede">Reach people who are already browsing Amazon Music.</p></div><div class="divider-number">02</div>
+    </div></section>
+
+    <section class="slide" id="slide-9" data-title="How to request an app feature"><div class="frame" data-number="09 / 23"><div class="content">
+      <div class="topline"><p class="kicker">02 · How it works</p><span class="pill">About 3 weeks from sending it over to going live.</span></div>
+      <div class="app-layout grow"><div class="stack" style="justify-content:center"><h2>A place in the browsing experience.</h2><p>Amazon can put your show at the top of a page or on a themed list.</p><p class="muted">Prominence is Amazon's call, based on audience size, show quality and fit with what the team is pushing at the time.</p><div class="wash"><h3>What they want back</h3><p style="margin-top:.5cqw">Nothing. You are not promising anything for this one.</p></div><a class="link-block" href="https://airtable.com/appdYhHVLng6NfWgx/pagUkEDRA1gBfqUJt/form"><span>Request the feature</span>Amazon partner promotional request form</a></div>
+      <div class="screens"><figure><img src="assets/images/image-13.jpg" alt="Amazon Music featured row"><figcaption>Featured row</figcaption></figure><figure><img src="assets/images/image-14.jpg" alt="Amazon Music video podcasts shelf"><figcaption>Video podcasts shelf</figcaption></figure><figure><img src="assets/images/image-15.jpg" alt="Amazon Music episode list"><figcaption>Episode list</figcaption></figure></div></div>
     </div></div></section>
 
-    <section class="slide" id="slide-6" data-title="In-app feature"><div class="slide-frame" data-number="06 / 12"><div class="content">
-      <div class="topline"><p class="kicker">02 · Quickest</p><span class="pill">About 3 weeks from sending it over to going live.</span></div><div class="grid-2 app-copy grow"><div class="stack"><h2>Being featured in the Amazon Music app</h2><p class="lede">It reaches people already looking for something to listen to.</p><div class="wash stack"><h3>What you get</h3><p>Amazon puts your show in front of people browsing the app. That might be a spot at the top of a page, or a place on one of their themed lists. How prominent it is comes down to Amazon's team, who look at how big your audience is, how good the show is, and how well it fits what they are pushing at the time.</p></div><p><b>What they want back:</b> Nothing. You are not promising them anything for this one.</p><p>To ask for this, fill in Amazon's partner promotional request form:<br><a href="https://airtable.com/appdYhHVLng6NfWgx/pagUkEDRA1gBfqUJt/form">airtable.com/partner promotional request</a></p></div><div class="screens"><figure><img src="assets/images/image-13.jpg" alt="Amazon Music featured row"><figcaption>Featured row</figcaption></figure><figure><img src="assets/images/image-14.jpg" alt="Amazon Music video podcasts shelf"><figcaption>Video podcasts shelf</figcaption></figure><figure><img src="assets/images/image-15.jpg" alt="Amazon Music episode list"><figcaption>Episode list</figcaption></figure></div></div>
+    <section class="slide" id="slide-10" data-title="Audio ad swap"><div class="frame divider divider-glow" data-number="10 / 23">
+      <div class="divider-copy"><p class="kicker">03 · No money changes hands</p><h1>Swap ad space with Amazon Music</h1><p class="lede">Trade ad space you already have for reach you could not buy.</p></div><div class="divider-number">03</div>
+    </div></section>
+
+    <section class="slide" id="slide-11" data-title="The audio exchange"><div class="frame" data-number="11 / 23"><div class="content">
+      <div class="topline"><p class="kicker">03 · The exchange</p><span class="pill">Ad space for ad space</span></div>
+      <div class="stack"><h2>Your audience unlocks their free-tier audience.</h2></div>
+      <div class="exchange grow"><div class="wash"><p class="eyebrow">What you give</p><span class="stat">2 million</span><p>An ad telling your listeners the show is on Amazon Music, played 2 million times across your episodes.</p></div><div class="exchange-line" aria-hidden="true"></div><div class="dark-panel"><p class="eyebrow">What you get</p><h3>Ads across Amazon Music's free tier</h3><p class="muted">Including people who have never come across your show.</p></div></div>
+      <p class="small muted">Nobody pays anybody. It is ad space for ad space.</p>
     </div></div></section>
 
-    <section class="slide" id="slide-7" data-title="Audio ad swap"><div class="slide-frame" data-number="07 / 12"><div class="content">
-      <div class="topline"><p class="kicker">03 · No money changes hands</p><span class="pill">Ad space for ad space</span></div><div class="stack"><h2>Swap ad space with Amazon Music</h2><p class="lede">You trade ad space you already have for ad space you could not buy.</p></div>
-      <div class="swap"><div class="wash stack"><p class="eyebrow">What you get</p><p>Ads for your show play to people using the free version of Amazon Music. That is their whole free audience, including plenty of people who have never come across your show.</p></div><div class="swap-arrow">↔</div><div class="wash stack"><p class="eyebrow">What they want back</p><p>An ad telling your own listeners that the show is on Amazon Music, played <b>2 million times</b> across your episodes.</p></div></div>
-      <ol class="steps"><li>You record an audio ad pointing your listeners to your show on Amazon Music</li><li>You run it in your own episodes, the same way you would run any other ad, until it has been played 2 million times</li><li>Amazon runs ads for your show to people on the free tier of Amazon Music</li><li>Nobody pays anybody. It is ad space for ad space</li></ol>
-      <p class="muted">How long the 2 million takes is down to your download numbers. A show doing 100,000 downloads an episode gets there faster than one doing 10,000, so it is worth working out your own timeline before committing.</p>
+    <section class="slide" id="slide-12" data-title="How the audio swap works"><div class="frame" data-number="12 / 23"><div class="content">
+      <div class="topline"><p class="kicker">03 · How it runs</p><span class="pill">Work out your timeline first</span></div>
+      <div class="stack"><h2>Record once. Run to 2 million.</h2><p class="lede">How long that takes is down to your download numbers.</p></div>
+      <div class="steps"><div class="step"><p>Record an audio ad pointing listeners to your show on Amazon Music.</p></div><div class="step"><p>Run it in your episodes, like any other ad, until it has been played 2 million times.</p></div><div class="step"><p>Amazon runs ads for your show to people using its free tier.</p></div><div class="step"><p>No invoice either way. The exchange closes in ad inventory.</p></div></div>
+      <div class="wash"><p>A show doing <b>100,000 downloads an episode</b> gets there faster than one doing <b>10,000</b>.</p></div>
     </div></div></section>
 
-    <section class="slide" id="slide-8" data-title="Social ads offer"><div class="slide-frame" data-number="08 / 12"><div class="content">
-      <div class="topline"><p class="kicker">04 · Costs you nothing</p><div class="stack" style="align-items:flex-end;gap:.3cqw"><span class="pill">Usually live within a week.</span><span class="muted">Full details overleaf.</span></div></div><div class="offer-split"><div class="stack"><h2>Ads on social, paid for by Amazon</h2><p class="lede">Someone else pays, and clips you already posted can do the work.</p></div><div class="wash stack"><h3>What you get</h3><p>Amazon pays for ads promoting your show on social media. It does not cost you anything. There are three things you can give them, and you can do more than one.</p></div></div>
-      <div class="social-assets grow"><figure><img src="assets/images/image-16.jpg" alt="Hosts talking to camera, filmed upright"><figcaption><b>Hosts talking to camera, filmed upright</b><br><b>A video of you.</b> Record 15 to 30 seconds talking about your show on Amazon Music, and they run it with their ad money across social. Filmed wide or upright, either is fine.</figcaption></figure><figure><img src="assets/images/image-17.jpg" alt="The same thing filmed wide"><figcaption><b>The same thing filmed wide</b><br><b>A headshot.</b> You send one you have approved, they use it to build a still image ad.</figcaption></figure><figure><img src="assets/images/image-18.jpg" alt="Clips lifted straight from episodes"><figcaption><b>Clips lifted straight from episodes</b><br><b>Clips from your episodes,</b> 30 seconds or less. No need to film anything new. Clips you have already posted on social are fine.</figcaption></figure></div>
+    <section class="slide" id="slide-13" data-title="Paid social"><div class="frame divider divider-glow" data-number="13 / 23">
+      <div class="divider-copy"><p class="kicker">04 · Costs you nothing</p><h1>Paid social, funded by Amazon</h1><p class="lede">You provide the host and show assets. Amazon provides the media dollars.</p></div><div class="divider-number">04</div>
+    </div></section>
+
+    <section class="slide" id="slide-14" data-title="Social promotion value"><div class="frame" data-number="14 / 23"><div class="content">
+      <div class="topline"><p class="kicker">04 · Social promotion</p><span class="pill">General awareness + discovery</span></div>
+      <div class="social-value grow"><div class="stack" style="justify-content:center"><h2>Send the files. Amazon funds the reach.</h2><p class="lede">Amazon distributes and boosts partner-provided video and static assets across social media, at no cost to you.</p><div class="rule"></div><p>Every ad drives back to the podcast on Amazon Music, growing awareness for both the show and its host, plus discovery and engagement on the service.</p></div><div class="social-shot"><img src="assets/images/image-19.jpg" alt="Example Instagram video ad"><p class="caption">Example Instagram video ad supplied by Amazon Music.</p></div></div>
     </div></div></section>
 
-    <section class="slide" id="slide-9" data-title="Social specifications"><div class="slide-frame" data-number="09 / 12"><div class="content">
-      <div class="topline"><p class="kicker">The social ads, in detail</p><span class="pill">TikTok · Instagram · Facebook</span></div><div class="stack"><h2>Send the files. Amazon funds the reach.</h2><p class="lede">You send Amazon the videos and photos, they pay to run them as ads on TikTok, Instagram and Facebook. The ads go out under your name and Amazon's at the same time, so they reach more people but still look like they came from you, and they do not clutter up your own feed. Every ad links back to your show.</p><p class="muted">Send all three kinds if you can. You need a professional or business Instagram account to take part on Instagram and Facebook. Any TikTok account works.</p></div>
-      <div class="tray grid-3 details grow"><div class="card"><h3>Filming it</h3><div style="height:1cqw"></div><ul><li>Plain background, camera on something steady. Not handheld, not a selfie</li><li>Having your mic and headphones in shot works well</li></ul><div style="height:1.3cqw"></div><h3>The file</h3><div style="height:1cqw"></div><ul><li>15 to 30 seconds long, under 500 MB</li><li>Upright, wide or square all work</li><li>Add subtitles if you can. Amazon adds the closing frame</li></ul></div><div class="card"><h3>What to say</h3><div style="height:1cqw"></div><ul><li>Say who you are, then what the show is: the sort of conversations you have, a story that would make someone stop and listen</li><li>Keep it general so it does not date. No naming particular episodes or guests</li><li>Finish with "Listen to the podcast now on Amazon Music", or "Watch the podcast now on Amazon Music" if you make video</li></ul></div><div class="card"><h3>The still image ad</h3><div style="height:1cqw"></div><p>One good, high-resolution headshot. Amazon builds the ad around it and links it to your show.</p><div style="height:1.3cqw"></div><h3>Clips from the show</h3><div style="height:1cqw"></div><ul><li>30 seconds or less, taken from video episodes that are already on Amazon Music</li><li>Clips you have already posted are fine</li></ul></div></div>
+    <section class="slide" id="slide-15" data-title="Partnership ad mechanics"><div class="frame" data-number="15 / 23"><div class="content">
+      <div class="topline"><p class="kicker">04 · How partnership ads work</p><span class="pill">Dark-posted partner ads</span></div>
+      <div class="grid-2 grow" style="align-items:center"><div class="stack"><h2>More reach. Still recognisably yours.</h2><p class="lede">Ads are disseminated from both your handle and Amazon Music handles.</p><p class="muted">They reach more people, maintain authenticity and do not clutter your own feed. Every ad links back to your show.</p></div><div class="mechanics">
+        <div class="mechanic"><p class="eyebrow">Build</p><p>Amazon Music creates ads from your assets.</p></div>
+        <div class="mechanic"><p class="eyebrow">Distribute</p><p>Amazon runs them across TikTok and Meta platforms; platform instructions are linked in Amazon's process.</p></div>
+        <div class="mechanic"><p class="eyebrow">Meta eligibility</p><p>A professional or business Instagram account is required for Instagram and Facebook.</p></div>
+        <div class="mechanic"><p class="eyebrow">TikTok eligibility</p><p>Any TikTok account works. All TikTok accounts are eligible.</p></div>
+      </div></div>
     </div></div></section>
 
-    <section class="slide" id="slide-10" data-title="Social examples"><div class="slide-frame" data-number="10 / 12"><div class="content">
-      <div class="topline"><p class="kicker">Made from what you already have</p><div class="brand"><span class="brand-dot"></span>Flightcast × <span class="amazon">amazon</span></div></div><h2>Four routes from source asset to social ad.</h2>
-      <div class="examples grow"><figure><img src="assets/images/image-19.jpg" alt="Example video ad on Instagram"><figcaption>An example video ad on Instagram</figcaption></figure><figure><img src="assets/images/image-20.jpg" alt="Example still image ads on TikTok"><figcaption>Example still image ads on TikTok</figcaption></figure><figure><img src="assets/images/image-21.jpg" alt="Plain background, mic in shot"><figcaption>Plain background, mic in shot</figcaption></figure><figure><img src="assets/images/image-22.jpg" alt="Still image ads built from a headshot"><figcaption>Still image ads built from a headshot</figcaption></figure></div>
-      <p class="muted">Example ads supplied by Amazon Music. The shows and artists pictured are examples, not part of this offer.</p>
+    <section class="slide" id="slide-16" data-title="Three social asset types"><div class="frame" data-number="16 / 23"><div class="content">
+      <div class="topline"><p class="kicker">04 · What to send</p><span class="pill">Send all three where possible</span></div>
+      <div class="stack"><h2>Three routes into the campaign.</h2><p class="lede">You can provide more than one.</p></div>
+      <div class="asset-types grow"><article class="asset-type"><span class="big-number">01</span><div><h3>Host-led videos</h3><p>Speak straight to camera in a style that feels natural to the show.</p><p class="limit">15 to 30 seconds</p></div></article><article class="asset-type"><span class="big-number">02</span><div><h3>Static assets</h3><p>Send one approved high-resolution headshot. Amazon builds the ad.</p><p class="limit">One approved portrait</p></div></article><article class="asset-type"><span class="big-number">03</span><div><h3>Episode clips</h3><p>Use a strong moment from a video episode already on Amazon Music.</p><p class="limit">30 seconds or less</p></div></article></div>
     </div></div></section>
 
-    <section class="slide" id="slide-11" data-title="Social campaign run"><div class="slide-frame" data-number="11 / 12"><div class="content">
-      <div class="topline"><p class="kicker">How the campaign runs</p><span class="pill">No fixed schedule</span></div><div class="stack"><h2>A fast start, with room to keep working.</h2><p class="lede">You send Amazon the videos and photos, they pay to run them as ads on TikTok, Instagram and Facebook.</p></div>
-      <div class="metrics"><div class="metric"><strong>4 channels</strong><span>Facebook, Threads, Instagram, TikTok</span></div><div class="metric"><strong>Within a week</strong><span>Usually, from you sending the files</span></div><div class="metric"><strong>4 to 6 weeks</strong><span>Initial run</span></div><div class="metric"><strong>Up to 3 to 6 months</strong><span>If they are working</span></div></div>
-      <div class="grid-2 grow"><div class="wash stack"><h3>How often to send</h3><p><b>1 to 4 a month</b> suits them best. There is no fixed schedule.</p></div><div class="wash stack"><h3>What you hear back</h3><p>Everything you send does get run and does get seen. Amazon will not tell you how many people clicked through and listened, as a matter of their policy.</p></div></div>
+    <section class="slide" id="slide-17" data-title="Host-led examples"><div class="frame" data-number="17 / 23"><div class="content">
+      <div class="topline"><p class="kicker">Asset type 1 · Host-led video</p><span class="pill">Natural to the show</span></div>
+      <div class="stack"><h2>Connect with fans where they are watching.</h2><p class="lede">Host speaks straight to camera. Upright, wide or square can all work.</p></div>
+      <div class="host-gallery grow"><figure><img src="assets/images/image-16.jpg" alt="Hosts speaking to camera in an upright video"><figcaption>Hosts talking to camera, filmed upright</figcaption></figure><figure><img src="assets/images/image-17.jpg" alt="Host-led video filmed wide"><figcaption>The same direct-to-camera style, filmed wide</figcaption></figure><figure><img src="assets/images/image-18.jpg" alt="Example clips lifted from podcast episodes"><figcaption>Episode moments can become clips too</figcaption></figure></div>
+      <p class="small muted">Amazon source examples: Joy 101 with Hoda Kotb · The Weekly Show with Jon Stewart · IMO with Michelle Obama and Craig Robinson · That Was Us Podcast.</p>
     </div></div></section>
 
-    <section class="slide" id="slide-12" data-title="Closing"><div class="slide-frame cta" data-number="12 / 12">
-      <div class="stack"><p class="kicker">Next step</p><h1>Worth a short call.</h1><p class="lede">Fifteen minutes to work out which of these suits your show, where your audience is now and where you want it to go.</p><a class="cta-button" href="https://cal.com/talyalevine">Grab a time at cal.com/talyalevine</a></div>
+    <section class="slide" id="slide-18" data-title="Host script and style"><div class="frame" data-number="18 / 23"><div class="content">
+      <div class="topline"><p class="kicker">Asset type 1 · Script and style</p><span class="pill">Evergreen wins</span></div>
+      <div class="script-layout grow"><div><h2 style="margin-bottom:1.2cqw">A simple script in three moves.</h2><div class="script"><div class="script-line"><p><b>Introduce yourself.</b></p></div><div class="script-line"><p><b>Introduce the podcast:</b> what it is about, key conversations, or a story that hooks a new listener. “Have you ever wondered...?”</p></div><div class="script-line"><p><b>Keep it evergreen.</b> Do not mention specific episodes or guests.</p></div></div><div class="wash"><h3>Look and feel</h3><p class="small" style="margin-top:.5cqw">Use a clean background and steady shot. Not handheld and not a selfie. A mic and headphones in frame work well.</p></div></div><div class="quote"><p>“Listen to the podcast now on Amazon Music!”</p><span>Audio-only call to action</span><div class="rule" style="background:rgba(255,255,255,.25)"></div><p>“Watch the podcast now on Amazon Music!”</p><span>Video podcast call to action</span></div></div>
+    </div></div></section>
+
+    <section class="slide" id="slide-19" data-title="Host video specifications"><div class="frame" data-number="19 / 23"><div class="content">
+      <div class="topline"><p class="kicker">Asset type 1 · File specifications</p><span class="pill">Amazon adds the end card</span></div>
+      <div class="spec-layout grow"><div class="spec-hero"><p class="eyebrow">Length</p><strong>15–30<br>seconds</strong><p>15 to 30 seconds long, under 500 MB.</p></div><div class="stack" style="justify-content:center"><h2>Keep the production clean, not complicated.</h2><div class="spec-list"><div class="spec"><b>File size</b><p>Within 500 MB.</p></div><div class="spec"><b>Aspect ratios</b><p>9:16, 16:9 or 1×1.</p></div><div class="spec"><b>Captions</b><p>Please include subtitles if possible.</p></div><div class="spec"><b>End card</b><p>Added by Amazon Music.</p></div></div></div></div>
+    </div></div></section>
+
+    <section class="slide" id="slide-20" data-title="Static assets"><div class="frame" data-number="20 / 23"><div class="content">
+      <div class="topline"><p class="kicker">Asset type 2 · Static assets</p><span class="pill">One approved portrait</span></div>
+      <div class="static-layout grow"><div class="static-copy"><h2>One portrait. Amazon builds the ad.</h2><p class="lede">Send an approved high-resolution headshot.</p><p>Amazon creates a static asset around it and links directly to the podcast on Amazon Music.</p><p class="small muted">Source examples: Malcolm Gladwell and Oprah Winfrey. Examples are not part of this offer.</p></div><div class="static-examples"><img src="assets/images/image-20.jpg" alt="Sample TikTok static ads"><img src="assets/images/image-22.jpg" alt="Still image ads built from approved headshots"></div></div>
+    </div></div></section>
+
+    <section class="slide" id="slide-21" data-title="Episode clips"><div class="frame" data-number="21 / 23"><div class="content">
+      <div class="topline"><p class="kicker">Asset type 3 · Episode clips</p><span class="pill">Use what you already have</span></div>
+      <div class="episode-layout grow"><div class="copy"><h2>No need to film anything new.</h2><p>Use a clip you have already posted.</p><p class="muted">It must be 30 seconds or less and pulled from a video episode currently on Amazon Music.</p><p>A strong moment gives potential viewers a taste of your content and tone.</p></div><img src="assets/images/image-18.jpg" alt="Amazon Music episode clip examples"><img src="assets/images/image-21.jpg" alt="That Was Us Podcast host clip"></div>
+      <p class="small muted">Source examples: Armchair Expert with Dax Shepard, Baby, This is Keke Palmer, The Zach Sang Show and That Was Us Podcast.</p>
+    </div></div></section>
+
+    <section class="slide" id="slide-22" data-title="Campaign timing and FAQs"><div class="frame" data-number="22 / 23"><div class="content">
+      <div class="topline"><p class="kicker">04 · Campaign timing and FAQs</p><span class="pill">No fixed schedule</span></div>
+      <div class="faq-layout grow"><div class="timeline"><div><span class="stat">Within a week</span><p>Usually live after receipt.</p></div><div><span class="stat">4 to 6 weeks</span><p>Typical initial campaign.</p></div><div><span class="stat">Up to 3 to 6 months</span><p>Extendable if performing well.</p></div></div><div class="faq-grid">
+        <div class="faq"><h3>Where does it run?</h3><p>Facebook, Threads, Instagram and TikTok.</p></div>
+        <div class="faq"><h3>Will it be seen?</h3><p>Yes. Every piece delivered goes live in market and gains impressions.</p></div>
+        <div class="faq"><h3>How often should we send?</h3><p>No specific cadence is required; 1 to 4 a month is preferred.</p></div>
+        <div class="faq"><h3>Do we get conversion data?</h3><p>No. Conversion details cannot be shared under Amazon Music policy.</p></div>
+        <div class="faq"><h3>What can we send?</h3><p>Host-led video, static portraits and episode clips. Send all three where possible.</p></div>
+        <div class="faq"><h3>What happens after delivery?</h3><p>Amazon creates, distributes and pays for the media. Everything you send gets run.</p></div>
+      </div></div>
+    </div></div></section>
+
+    <section class="slide" id="slide-23" data-title="Closing"><div class="frame cta" data-number="23 / 23">
+      <div class="stack"><p class="kicker">Next step</p><h1>Worth a short call.</h1><p class="lede">Fifteen minutes to work out which programme suits your show, where your audience is now and where you want it to go.</p><a class="cta-button" href="https://cal.com/talyalevine">Grab a time at cal.com/talyalevine</a></div>
       <div class="signature"><p class="eyebrow">Your contact</p><strong>Talya Levine Cooke</strong><p>VP of Growth and Partnerships<br>Flightcast</p></div>
     </div></section>
   </main>
-  <nav class="controls" aria-label="Slide navigation"><button id="prev-slide" type="button" aria-label="Previous slide">←</button><span class="counter" id="slide-counter" aria-live="polite">1 / 12</span><button id="next-slide" type="button" aria-label="Next slide">→</button></nav>
+  <nav class="controls" aria-label="Slide navigation"><button id="prev-slide" type="button" aria-label="Previous slide">←</button><span class="counter" id="slide-counter" aria-live="polite">1 / 23</span><button id="next-slide" type="button" aria-label="Next slide">→</button></nav>
   <div class="progress" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
   <script>
     (() => {
@@ -184,7 +224,6 @@
       const progress = document.getElementById('progress-bar');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       let current = 0;
-
       const clamp = value => Math.max(0, Math.min(slides.length - 1, value));
       const render = index => {
         current = clamp(index);
@@ -196,35 +235,27 @@
       };
       const goTo = (index, updateHash = true) => {
         const target = clamp(index);
-        slides[target].scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+        slides[target].scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});
         render(target);
-        if (updateHash) history.replaceState(null, '', `#slide-${target + 1}`);
+        if(updateHash) history.replaceState(null,'',`#slide-${target + 1}`);
       };
-      const fromHash = () => {
-        const match = location.hash.match(/^#slide-(\d+)$/);
-        return match ? clamp(Number(match[1]) - 1) : 0;
-      };
-
-      prev.addEventListener('click', () => goTo(current - 1));
-      next.addEventListener('click', () => goTo(current + 1));
-      document.addEventListener('keydown', event => {
-        if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); goTo(current + 1); }
-        if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key)) { event.preventDefault(); goTo(current - 1); }
-        if (event.key === 'Home') { event.preventDefault(); goTo(0); }
-        if (event.key === 'End') { event.preventDefault(); goTo(slides.length - 1); }
+      const fromHash = () => { const match=location.hash.match(/^#slide-(\d+)$/); return match?clamp(Number(match[1])-1):0; };
+      prev.addEventListener('click',()=>goTo(current-1));
+      next.addEventListener('click',()=>goTo(current+1));
+      document.addEventListener('keydown',event=>{
+        if(['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();goTo(current+1)}
+        if(['ArrowLeft','ArrowUp','PageUp'].includes(event.key)){event.preventDefault();goTo(current-1)}
+        if(event.key==='Home'){event.preventDefault();goTo(0)}
+        if(event.key==='End'){event.preventDefault();goTo(slides.length-1)}
       });
-      addEventListener('hashchange', () => goTo(fromHash(), false));
-      const observer = new IntersectionObserver(entries => {
-        const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        const index = slides.indexOf(visible.target);
-        render(index);
-        history.replaceState(null, '', `#slide-${index + 1}`);
-      }, { threshold: [.55, .75] });
-      const initial = fromHash();
-      render(initial);
-      slides[initial].scrollIntoView({ behavior: 'auto', block: 'start' });
-      requestAnimationFrame(() => slides.forEach(slide => observer.observe(slide)));
+      addEventListener('hashchange',()=>goTo(fromHash(),false));
+      const observer=new IntersectionObserver(entries=>{
+        const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+        if(!visible)return;
+        const index=slides.indexOf(visible.target);render(index);history.replaceState(null,'',`#slide-${index+1}`);
+      },{threshold:[.55,.75]});
+      const initial=fromHash();render(initial);slides[initial].scrollIntoView({behavior:'auto',block:'start'});
+      requestAnimationFrame(()=>slides.forEach(slide=>observer.observe(slide)));
     })();
   </script>
 </body>
