@@ -55,8 +55,9 @@ def main() -> None:
         fail(f"slide IDs are not sequential: {parser.slide_ids}")
 
     phrases = [
-        "Your video podcast is coming to Amazon Music.",
-        "Flightcast sends your episodes automatically.",
+        "Amazon Music wants to highlight your show.",
+        "Video podcasts are coming to Amazon Music.",
+        "Flightcast sends your existing episodes there automatically.",
         "Amazon Music wants to highlight your show",
         "Four promotion options from Amazon Music",
         "Your show on a Times Square billboard",
