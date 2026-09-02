@@ -56,7 +56,8 @@ def main() -> None:
 
     phrases = [
         "Your video podcast is coming to Amazon Music.",
-        "Flightcast will send your existing video episodes there automatically.",
+        "Flightcast sends your episodes automatically.",
+        "Amazon Music wants to highlight your show",
         "Four promotion options from Amazon Music",
         "Your show on a Times Square billboard",
         "About 3 weeks from submission to launch",
