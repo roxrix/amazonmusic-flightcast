@@ -28,8 +28,8 @@
     h1{font-size:clamp(34px,5.2cqw,80px);line-height:.98;letter-spacing:-.055em;font-weight:500;text-wrap:balance}
     h2{font-size:clamp(27px,3.65cqw,56px);line-height:1.02;letter-spacing:-.045em;font-weight:500;text-wrap:balance}
     h3{font-size:clamp(15px,1.45cqw,23px);line-height:1.15;font-weight:500}
-    p,li{font-size:clamp(11px,1.15cqw,18px);line-height:1.42}
-    .lede{font-size:clamp(15px,1.7cqw,26px);line-height:1.34;color:#4d4653;max-width:42em}
+    p,li{font-size:clamp(13px,1.32cqw,21px);line-height:1.42}
+    .lede{font-size:clamp(17px,1.9cqw,30px);line-height:1.32;color:#4d4653;max-width:42em}
     .muted{color:var(--muted)}
     .topline{display:flex;justify-content:space-between;align-items:center;gap:20px}
     .stack{display:flex;flex-direction:column;gap:clamp(10px,1.2cqw,20px)}
@@ -56,32 +56,36 @@
     .meaning{grid-template-columns:1.05fr .95fr;align-items:stretch}
     .phones{display:grid;grid-template-columns:1fr 1fr;gap:3%;min-height:0;background:var(--tray);padding:2%;border-radius:2cqw}
     .phones img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:top;border-radius:1.5cqw}
-    .program{min-height:0;display:flex;flex-direction:column;gap:1.2cqw}.program .icon{font-size:clamp(18px,2.2cqw,34px)}
+    .programs-overview{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+    .program{min-height:0;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:1.3cqw;row-gap:.65cqw;align-content:center}
+    .program .num{grid-row:1 / 4;font-size:clamp(31px,4.1cqw,64px);padding-top:.08em}
+    .program h3{font-size:clamp(18px,1.85cqw,29px)}
     .program p{color:var(--muted)}
+    .program .program-note{font-size:clamp(13px,1.17cqw,18px);color:#4d4653}
     .boards{grid-template-columns:repeat(5,1fr);height:45%;display:grid;gap:.5cqw;background:var(--tray);padding:.5cqw;border-radius:1.8cqw}
     .boards img{width:100%;height:100%;object-fit:cover;border-radius:1.3cqw}
     .offer-split{display:grid;grid-template-columns:.78fr 1.22fr;gap:2.2cqw;align-items:start}
     .requirements{grid-template-columns:1fr 1fr;align-items:stretch}
-    .requirements .card{padding:1.35cqw}.requirements ul{gap:.45cqw}.requirements li{font-size:clamp(9px,1cqw,16px);line-height:1.3}
+    .requirements .card{padding:1.35cqw}.requirements ul{gap:.55cqw}.requirements li{font-size:clamp(12px,1.13cqw,18px);line-height:1.32}
     .requirements b{font-weight:600}
     .app-copy{grid-template-columns:.92fr 1.08fr;align-items:stretch}
     .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:.7cqw;min-height:0;background:var(--tray);padding:.7cqw;border-radius:1.9cqw}
     figure{margin:0;display:flex;min-width:0;min-height:0;flex-direction:column;gap:.5cqw}
     figure img{width:100%;min-height:0;flex:1;object-fit:cover;object-position:top;border-radius:1.2cqw}
-    figcaption{font-size:clamp(8px,.8cqw,12px);color:var(--muted);text-align:center}
+    figcaption{font-size:clamp(11px,.96cqw,15px);line-height:1.3;color:var(--muted);text-align:center}
     .swap{display:grid;grid-template-columns:1fr .13fr 1fr;align-items:center;gap:1.4cqw}
     .swap-arrow{text-align:center;font-size:3cqw;color:var(--violet)}
     .steps{counter-reset:step;list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.6cqw}
-    .steps li{counter-increment:step;background:#f5f2f7;border-radius:1cqw;padding:1.15cqw;font-size:clamp(9px,.95cqw,15px)}
+    .steps li{counter-increment:step;background:#f5f2f7;border-radius:1cqw;padding:1.15cqw;font-size:clamp(11px,1.06cqw,17px)}
     .steps li::before{content:"0" counter(step);display:block;color:var(--violet);margin-bottom:.6cqw}
     .social-assets{display:grid;grid-template-columns:repeat(3,1fr);gap:.7cqw;min-height:0}
     .social-assets figure{background:var(--tray);padding:.55cqw;border-radius:1.6cqw}
     .social-assets img{object-fit:cover}
-    .social-assets figcaption{font-size:clamp(10px,.9cqw,14px);line-height:1.3;text-align:left;padding-inline:.25cqw}
-    .details{grid-template-columns:1fr 1fr 1fr;align-items:stretch}.details .card{padding:1.3cqw}.details ul{gap:.4cqw}.details li{font-size:clamp(9px,.94cqw,15px);line-height:1.3}
+    .social-assets figcaption{font-size:clamp(11px,1.02cqw,16px);line-height:1.3;text-align:left;padding-inline:.25cqw}
+    .details{grid-template-columns:1fr 1fr 1fr;align-items:stretch}.details .card{padding:1.3cqw}.details ul{gap:.42cqw}.details li{font-size:clamp(11px,1.03cqw,16px);line-height:1.3}
     .examples{display:grid;grid-template-columns:.8fr 1.05fr .68fr 1.25fr;gap:.55cqw;min-height:0;background:var(--tray);padding:.55cqw;border-radius:1.8cqw}
     .examples img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:1.25cqw}
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:.6cqw}.metric{padding:1.1cqw;background:#f5f2f7;border-radius:1cqw}.metric strong{display:block;font-size:clamp(14px,1.75cqw,27px);font-weight:500;line-height:1.05;color:var(--violet);margin-bottom:.4cqw}.metric span{font-size:clamp(8px,.85cqw,13px);color:var(--muted)}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:.6cqw}.metric{padding:1.1cqw;background:#f5f2f7;border-radius:1cqw}.metric strong{display:block;font-size:clamp(16px,1.85cqw,29px);font-weight:500;line-height:1.05;color:var(--violet);margin-bottom:.4cqw}.metric span{font-size:clamp(11px,.98cqw,15px);line-height:1.3;color:var(--muted)}
     .cta{background:linear-gradient(145deg,#f4ebff,#fff 55%,#eaffbb);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:4cqw}.cta h1{color:var(--violet-deep)}
     .cta-button{display:inline-flex;width:max-content;text-decoration:none;background:var(--ink);color:white;border-radius:999px;padding:.8em 1.15em;font-size:clamp(12px,1.15cqw,18px)}
     .signature{background:white;border-radius:2cqw;padding:2.5cqw;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:1cqw}.signature strong{font-size:2cqw;font-weight:500}
@@ -113,7 +117,12 @@
     <section class="slide" id="slide-3" data-title="Four programmes"><div class="slide-frame" data-number="03 / 12"><div class="content">
       <div class="topline"><p class="kicker">The opportunity</p><div class="brand"><span class="brand-dot"></span>Flightcast × <span class="amazon">amazon</span></div></div>
       <div class="stack"><h2>Four ways to put your show in front of more people.</h2><p class="lede"><b>Flightcast can get you into the marketing that comes with it.</b> Amazon is opening four marketing programmes to a small number of shows, and we think yours is one of them.</p></div>
-      <div class="tray grid-4 grow"><article class="card program"><span class="icon">▰</span><span class="num">01</span><h3>Billboard</h3><p>20 Times Square</p></article><article class="card program"><span class="icon">▣</span><span class="num">02</span><h3>In the app</h3><p>Amazon Music app</p></article><article class="card program"><span class="icon">◖</span><span class="num">03</span><h3>Audio ads</h3><p>The free tier</p></article><article class="card program"><span class="icon">●</span><span class="num">04</span><h3>Social ads</h3><p>Meta and TikTok</p></article></div>
+      <div class="tray programs-overview grow">
+        <article class="card program"><span class="num">01</span><h3>Times Square billboard</h3><p>One week on one of the world’s biggest screens.</p><p class="program-note">Best for shows with a big audience already · 3 to 4 months lead time</p></article>
+        <article class="card program"><span class="num">02</span><h3>Featured in the app</h3><p>Reach people already browsing Amazon Music.</p><p class="program-note">Quickest option · Nothing promised back</p></article>
+        <article class="card program"><span class="num">03</span><h3>Audio ad swap</h3><p>Trade your ad space for reach across the free tier.</p><p class="program-note">No money changes hands · 2 million plays from your side</p></article>
+        <article class="card program"><span class="num">04</span><h3>Paid social ads</h3><p>Amazon funds campaigns across Meta and TikTok.</p><p class="program-note">Usually live within a week · Costs you nothing</p></article>
+      </div>
     </div></div></section>
 
     <section class="slide" id="slide-4" data-title="Billboard offer"><div class="slide-frame" data-number="04 / 12"><div class="content">
