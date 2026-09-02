@@ -1,0 +1,136 @@
+{
+  "images": [
+    {
+      "index": 1,
+      "file": "assets/images/image-01.jpg",
+      "bytes": 45407
+    },
+    {
+      "index": 2,
+      "file": "assets/images/image-02.jpg",
+      "bytes": 61568
+    },
+    {
+      "index": 3,
+      "file": "assets/images/image-03.jpg",
+      "bytes": 41054
+    },
+    {
+      "index": 4,
+      "file": "assets/images/image-04.jpg",
+      "bytes": 59478
+    },
+    {
+      "index": 5,
+      "file": "assets/images/image-05.jpg",
+      "bytes": 57774
+    },
+    {
+      "index": 6,
+      "file": "assets/images/image-06.jpg",
+      "bytes": 45407
+    },
+    {
+      "index": 7,
+      "file": "assets/images/image-07.jpg",
+      "bytes": 41054
+    },
+    {
+      "index": 8,
+      "file": "assets/images/image-08.jpg",
+      "bytes": 42750
+    },
+    {
+      "index": 9,
+      "file": "assets/images/image-09.jpg",
+      "bytes": 41156
+    },
+    {
+      "index": 10,
+      "file": "assets/images/image-10.jpg",
+      "bytes": 31993
+    },
+    {
+      "index": 11,
+      "file": "assets/images/image-11.jpg",
+      "bytes": 47347
+    },
+    {
+      "index": 12,
+      "file": "assets/images/image-12.jpg",
+      "bytes": 39656
+    },
+    {
+      "index": 13,
+      "file": "assets/images/image-13.jpg",
+      "bytes": 61568
+    },
+    {
+      "index": 14,
+      "file": "assets/images/image-14.jpg",
+      "bytes": 59478
+    },
+    {
+      "index": 15,
+      "file": "assets/images/image-15.jpg",
+      "bytes": 57774
+    },
+    {
+      "index": 16,
+      "file": "assets/images/image-16.jpg",
+      "bytes": 55841
+    },
+    {
+      "index": 17,
+      "file": "assets/images/image-17.jpg",
+      "bytes": 47649
+    },
+    {
+      "index": 18,
+      "file": "assets/images/image-18.jpg",
+      "bytes": 86726
+    },
+    {
+      "index": 19,
+      "file": "assets/images/image-19.jpg",
+      "bytes": 37638
+    },
+    {
+      "index": 20,
+      "file": "assets/images/image-20.jpg",
+      "bytes": 66121
+    },
+    {
+      "index": 21,
+      "file": "assets/images/image-21.jpg",
+      "bytes": 28391
+    },
+    {
+      "index": 22,
+      "file": "assets/images/image-22.jpg",
+      "bytes": 48074
+    }
+  ],
+  "fonts": [
+    {
+      "weight": 400,
+      "file": "assets/fonts/geist-400.woff2",
+      "bytes": 45244
+    },
+    {
+      "weight": 500,
+      "file": "assets/fonts/geist-500.woff2",
+      "bytes": 46372
+    },
+    {
+      "weight": 600,
+      "file": "assets/fonts/geist-600.woff2",
+      "bytes": 46596
+    },
+    {
+      "weight": 700,
+      "file": "assets/fonts/geist-700.woff2",
+      "bytes": 46496
+    }
+  ]
+}
