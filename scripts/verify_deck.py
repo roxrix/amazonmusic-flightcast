@@ -59,6 +59,7 @@ def main() -> None:
         "Video podcasts are coming to Amazon Music.",
         "Flightcast sends your existing episodes there automatically.",
         "Amazon Music wants to highlight your show",
+        "There are four ways Amazon Music could highlight you.",
         "Four promotion options from Amazon Music",
         "Your show on a Times Square billboard",
         "About 3 weeks from submission to launch",
